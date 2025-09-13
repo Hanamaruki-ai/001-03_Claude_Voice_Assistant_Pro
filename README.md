@@ -1,4 +1,4 @@
-[ClaudeVoicePro_with_Summary.html](https://github.com/user-attachments/files/22306278/ClaudeVoicePro_with_Summary.html)# 001-03_Claude_Voice_Assistant_Pro
+[Claude Voice Assistant Pro -API入手式.html](https://github.com/user-attachments/files/22309704/Claude.Voice.Assistant.Pro.-API.html)[ClaudeVoicePro_with_Summary.html](https://github.com/user-attachments/files/22306278/ClaudeVoicePro_with_Summary.html)# 001-03_Claude_Voice_Assistant_Pro
 
 信じられないかもしれませんが、このアプリは、AIに「話しかけただけ」で生まれました。
 キーボード入力という苦痛から解放され、思考の流れを止めずにAIと対話する。そんな夢のような体験を、あなたも。
@@ -57,58 +57,30 @@ PC（Windows/Mac）での利用を推奨します。
 以下のリンクから、アプリのコード、ユーザーガイド、技術仕様書をまとめたZIPファイルをダウンロードできます。
 
 ### ➡️ アプリとドキュメントをまとめてダウンロード
-[docs.zip](https://github.com/user-attachments/files/22306369/docs.zip)
+[Docs.zip](https://github.com/user-attachments/files/22309643/Docs.zip)
+* Claude Voice Assistant Pro -API入手式.html
+　 アプリ本体
+* Claude Voice Assistant Pro_ユーザーガイド.md
+　  アプリ仕様書
+* APIキー習得マニュアル/md
+　  APIキーを取得して使うときのマニュアル
+* Claude Voice Assistant Pro -API入手式.html.png
+　 アプリのスクリーンショット
+* Claude Voice Assistant Pro - 技術仕様書.md
+　 アプリ技術仕様書
+* 20250912_MIT License.txt
+  ライセンス内容
 
-
----
-
-## MITライセンス
-
-著作権表示
-
-Copyright (c) 2025 Hanamaruki
-
-ここに、本ソフトウェアとそれに関連するドキュメントファイル（以下「本ソフトウェア」）の複製物を受け取るすべての人に対し、無料で利用を許可します。
-この許可には、本ソフトウェアを制限なく取り扱う権利が含まれます。
-具体的には、使用、複製、変更、結合、出版、配布、サブライセンスの付与、および販売を行う権利、また、本ソフトウェアが提供される相手に対して、これらの行為を許可する権利を意味します。
-ただし、以下の条件に従うものとします。
-
-上記に記載された著作権表示と、本許可表示は、本ソフトウェアのすべての複製物、または実質的な部分に含まれなければならないものとします。
-
-本ソフトウェアは「現状のまま」提供され、商品性、特定の目的への適合性、および非侵害性に対する保証を含む、明示的または黙示的ないかなる種類の保証もありません。
-いかなる場合も、著者または著作権者は、本ソフトウェアの使用またはその他の取り扱いから生じる、契約、不法行為、またはその他の行為にかかわらず、いかなる請求、損害、またはその他の責任に対しても責任を負わないものとします。
-
----
-
-## MIT License
-
-Copyright (c) 2025 Hanamaruki
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+### 使い方がわからない場合はファイルをAiに読み込ませて使い方を聞いてみてください。
 
 ---
 
 ## 📄 ドキュメント内容
 以下の内容を参考に、アプリの詳細を確認できます。
 
-## 1. アプリ本体のコード (ClaudeVoicePro_with_Summary.html)
-[Uploading ClaudeVoicePro_w<!DOCTYPE html>
+## 1. アプリ本体のコード (Claude Voice Assistant Pro -API入手式.html)
+[Uploading Claude Voice Assistant Pro -API入手
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -379,6 +351,7 @@ SOFTWARE.
         }
 
         .setting-item input[type="text"],
+        .setting-item input[type="password"], /* 追加 */
         .setting-item select {
             width: 100%;
             padding: 8px 12px;
@@ -389,7 +362,8 @@ SOFTWARE.
         }
         
         .setting-item select:focus,
-        .setting-item input[type="text"]:focus {
+        .setting-item input[type="text"]:focus,
+        .setting-item input[type="password"]:focus { /* 追加 */
             outline: none;
             border-color: #667eea;
         }
@@ -731,6 +705,14 @@ SOFTWARE.
                     <details open> <!-- open属性でデフォルトで開く -->
                         <summary>設定</summary>
                         <div class="setting-item">
+                            <label for="openaiApiKey">OpenAI APIキー</label>
+                            <input type="password" id="openaiApiKey" placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                            <p style="font-size: 0.8em; color: #888; margin-top: 5px;">
+                                ※個人で取得したAPIキーを入力してください。<br>
+                                OpenAIアカウント: <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer">platform.openai.com/api-keys</a>
+                            </p>
+                        </div>
+                        <div class="setting-item">
                             <label for="language">言語</label>
                             <select id="language">
                                 <option value="ja-JP">🇯🇵 日本語</option>
@@ -849,6 +831,7 @@ SOFTWARE.
                 this.showMicrophoneGuideOnStartup = this.loadMicrophoneGuideSetting(); // マイクガイド設定をロード
                 this.hasRequestedMicrophonePermission = false; // マイク許可を一度でも要求したかどうかのフラグ
                 this.downloadFormats = this.loadDownloadFormatSettings(); // ダウンロード形式設定をロード
+                this.openaiApiKey = this.loadOpenAIApiKey(); // OpenAI APIキーをロード
 
                 this.initElements();
                 this.initSpeechRecognition();
@@ -858,6 +841,11 @@ SOFTWARE.
                 this.loadHistoryDisplay();
                 this.applyDownloadFormatSettings(); // ダウンロード形式設定を適用
                 this.checkMicrophonePermissionAndShowGuide(); // マイク許可をチェックし、必要ならガイドを表示
+
+                // 初期ロード時にAPIキー入力欄に値を設定
+                if (this.openaiApiKeyInput) {
+                    this.openaiApiKeyInput.value = this.openaiApiKey;
+                }
             }
             
             initElements() {
@@ -870,7 +858,8 @@ SOFTWARE.
                 this.downloadFormatCheckboxes = document.querySelectorAll('#downloadFormatOptions input[type="checkbox"]'); // 変更
                 this.undoBtn = document.getElementById('undoBtn');
                 this.redoBtn = document.getElementById('redoBtn');
-                
+                this.summarizeBtn = document.getElementById('summarizeBtn'); // 追加
+
                 this.statusDisplay = document.getElementById('statusDisplay');
                 this.textOutput = document.getElementById('textOutput');
                 this.languageSelect = document.getElementById('language');
@@ -893,6 +882,9 @@ SOFTWARE.
                 this.closeMicrophoneGuideModalBtn = document.getElementById('closeMicrophoneGuideModal');
                 this.showMicrophoneGuideCheckbox = document.getElementById('showMicrophoneGuide');
 
+                // OpenAI APIキー入力欄
+                this.openaiApiKeyInput = document.getElementById('openaiApiKey'); // 追加
+
                 // チェックボックスの初期状態を設定
                 this.showMicrophoneGuideCheckbox.checked = this.showMicrophoneGuideOnStartup;
             }
@@ -900,8 +892,7 @@ SOFTWARE.
             initSpeechRecognition() {
                 // ブラウザが音声認識APIをサポートしているか確認
                 if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-                    this.statusDisplay.textContent = '音声認識非対応ブラウザです';
-                    this.statusDisplay.className = 'status-display error';
+                    this.updateStatus('音声認識非対応ブラウザです', 'error');
                     this.micBtn.disabled = true;
                     return;
                 }
@@ -923,8 +914,7 @@ SOFTWARE.
                     this.micBtn.classList.add('listening'); // マイクボタンにリスニング中のスタイルを適用
                     this.micBtn.disabled = true; // マイクボタンを無効化
                     this.stopBtn.disabled = false; // 停止ボタンを有効化
-                    this.statusDisplay.textContent = '聞いています... 話してください';
-                    this.statusDisplay.className = 'status-display listening'; // ステータス表示を更新
+                    this.updateStatus('聞いています... 話してください', 'listening');
                 };
                 
                 // 認識結果が得られた時のイベントハンドラ
@@ -951,8 +941,7 @@ SOFTWARE.
                 // エラー発生時のイベントハンドラ
                 this.recognition.onerror = (event) => {
                     console.error('音声認識エラー:', event.error);
-                    this.statusDisplay.textContent = `エラー: ${event.error}`;
-                    this.statusDisplay.className = 'status-display error';
+                    this.updateStatus(`エラー: ${event.error}`, 'error');
                     this.resetButtons(); // ボタンの状態をリセット
 
                     // マイク許可エラーの場合、ガイドを表示
@@ -968,11 +957,10 @@ SOFTWARE.
                     
                     // マイク許可が既に要求されており、かつガイド表示設定がONの場合に補足メッセージを追加
                     if (this.hasRequestedMicrophonePermission && this.showMicrophoneGuideOnStartup) {
-                        this.statusDisplay.textContent = '認識完了 - 再度開始するにはマイクボタンを押してください。※ブラウザの仕様により、再度許可を求められる場合があります。';
+                        this.updateStatus('認識完了 - 再度開始するにはマイクボタンを押してください。※ブラウザの仕様により、再度許可を求められる場合があります。');
                     } else {
-                        this.statusDisplay.textContent = '認識完了 - 再度開始するにはマイクボタンを押してください';
+                        this.updateStatus('認識完了 - 再度開始するにはマイクボタンを押してください');
                     }
-                    this.statusDisplay.className = 'status-display';
                     this.resetButtons(); // ボタンの状態をリセット
                 };
             }
@@ -987,7 +975,8 @@ SOFTWARE.
                 this.downloadBtn.addEventListener('click', () => this.downloadTextsInSelectedFormats()); // 変更
                 this.undoBtn.addEventListener('click', () => this.undo());
                 this.redoBtn.addEventListener('click', () => this.redo());
-
+                this.summarizeBtn.addEventListener('click', () => this.summarizeText()); // 追加
+                
                 // ダウンロード形式チェックボックスの変更イベント
                 this.downloadFormatCheckboxes.forEach(checkbox => {
                     checkbox.addEventListener('change', () => this.saveDownloadFormatSettings());
@@ -1029,6 +1018,13 @@ SOFTWARE.
                     this.saveMicrophoneGuideSetting();
                 });
 
+                // OpenAI APIキー入力欄の変更イベントリスナーを追加
+                this.openaiApiKeyInput.addEventListener('input', (e) => {
+                    this.openaiApiKey = e.target.value.trim();
+                    this.saveOpenAIApiKey(this.openaiApiKey);
+                    this.updateStatus('APIキーを更新しました。');
+                });
+
                 // キーボードショートカット
                 document.addEventListener('keydown', (e) => {
                     if (e.ctrlKey || e.metaKey) { // CtrlキーまたはCmdキーが押されている場合
@@ -1058,6 +1054,10 @@ SOFTWARE.
                                 e.preventDefault();
                                 this.downloadTextsInSelectedFormats();
                                 break;
+                            case 'y': // Ctrl/Cmd + Y で要約
+                                e.preventDefault();
+                                this.summarizeText();
+                                break;
                         }
                     }
                 });
@@ -1073,8 +1073,7 @@ SOFTWARE.
                     this.recognition.start();
                 } catch (error) {
                     console.error('録音開始エラー:', error);
-                    this.statusDisplay.textContent = '録音開始に失敗しました';
-                    this.statusDisplay.className = 'status-display error';
+                    this.updateStatus('録音開始に失敗しました', 'error');
                     // エラーがマイク許可関連の場合、ガイドを表示
                     if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
                         this.showMicrophoneGuideModal();
@@ -1095,26 +1094,24 @@ SOFTWARE.
                 this.textOutput.value = '';
                 this.finalTranscript = '';
                 this.updateCharCount();
-                this.statusDisplay.textContent = 'テキストをクリアしました';
+                this.updateStatus('テキストをクリアしました');
             }
             
             // テキストをクリップボードにコピー
             async copyText() {
                 const text = this.textOutput.value;
                 if (!text.trim()) {
-                    this.statusDisplay.textContent = 'コピーするテキストがありません';
-                    this.statusDisplay.className = 'status-display error';
+                    this.updateStatus('コピーするテキストがありません', 'error');
                     return;
                 }
                 
                 try {
                     await navigator.clipboard.writeText(text);
-                    this.statusDisplay.textContent = 'クリップボードにコピーしました！';
-                    this.statusDisplay.className = 'status-display';
+                    this.updateStatus('クリップボードにコピーしました！');
                 } catch (error) {
                     console.error('コピーエラー:', error);
                     this.textOutput.select();
-                    this.statusDisplay.textContent = 'テキストを選択しました（手動でコピーしてください）';
+                    this.updateStatus('テキストを選択しました（手動でコピーしてください）', 'error');
                 }
             }
 
@@ -1179,8 +1176,7 @@ SOFTWARE.
             downloadTextsInSelectedFormats() {
                 const originalText = this.textOutput.value;
                 if (!originalText.trim()) {
-                    this.statusDisplay.textContent = 'ダウンロードするテキストがありません';
-                    this.statusDisplay.className = 'status-display error';
+                    this.updateStatus('ダウンロードするテキストがありません', 'error');
                     return;
                 }
 
@@ -1193,8 +1189,7 @@ SOFTWARE.
                                             }));
 
                 if (checkedFormats.length === 0) {
-                    this.statusDisplay.textContent = 'ダウンロード形式が選択されていません。設定から選んでください。';
-                    this.statusDisplay.className = 'status-display error';
+                    this.updateStatus('ダウンロード形式が選択されていません。設定から選んでください。', 'error');
                     return;
                 }
 
@@ -1226,16 +1221,14 @@ SOFTWARE.
                     downloadedCount++;
                 });
 
-                this.statusDisplay.textContent = `${downloadedCount}個のファイルをダウンロードしました！`;
-                this.statusDisplay.className = 'status-display';
+                this.updateStatus(`${downloadedCount}個のファイルをダウンロードしました！`);
             }
             
             // テキストを履歴に保存
             saveToHistory() {
                 const text = this.textOutput.value;
                 if (!text.trim()) {
-                    this.statusDisplay.textContent = '保存するテキストがありません';
-                    this.statusDisplay.className = 'status-display error';
+                    this.updateStatus('保存するテキストがありません', 'error');
                     return;
                 }
                 
@@ -1255,7 +1248,7 @@ SOFTWARE.
                 
                 this.saveHistory(); // ローカルストレージに保存
                 this.loadHistoryDisplay(); // 履歴表示を更新
-                this.statusDisplay.textContent = '履歴に保存しました';
+                this.updateStatus('履歴に保存しました');
             }
 
             // 履歴のリセット
@@ -1264,8 +1257,7 @@ SOFTWARE.
                     this.history = [];
                     this.saveHistory();
                     this.loadHistoryDisplay();
-                    this.statusDisplay.textContent = '履歴をリセットしました';
-                    this.statusDisplay.className = 'status-display';
+                    this.updateStatus('履歴をリセットしました');
                 }
             }
 
@@ -1275,8 +1267,7 @@ SOFTWARE.
                     this.stats = { totalSessions: 0, totalWords: 0, totalTime: 0 };
                     this.saveStats();
                     this.updateStats();
-                    this.statusDisplay.textContent = '統計データをリセットしました';
-                    this.statusDisplay.className = 'status-display';
+                    this.updateStatus('統計データをリセットしました');
                 }
             }
             
@@ -1293,7 +1284,7 @@ SOFTWARE.
                 this.textOutput.selectionStart = this.textOutput.selectionEnd = cursorPos + template.length;
                 
                 this.updateCharCount();
-                this.statusDisplay.textContent = 'テンプレートを挿入しました';
+                this.updateStatus('テンプレートを挿入しました');
             }
             
             // 現在のテキストをアンドゥスタックに保存
@@ -1318,7 +1309,7 @@ SOFTWARE.
                 this.redoStack.push(this.textOutput.value); // 現在のテキストをリドゥスタックに保存
                 this.textOutput.value = this.undoStack.pop(); // スタックから一つ前のテキストを取得
                 this.updateCharCount();
-                this.statusDisplay.textContent = '元に戻しました';
+                this.updateStatus('元に戻しました');
             }
             
             // やり直し (Redo)
@@ -1328,7 +1319,7 @@ SOFTWARE.
                 this.undoStack.push(this.textOutput.value); // 現在のテキストをアンドゥスタックに保存
                 this.textOutput.value = this.redoStack.pop(); // スタックから一つ後のテキストを取得
                 this.updateCharCount();
-                this.statusDisplay.textContent = 'やり直しました';
+                this.updateStatus('やり直しました');
             }
             
             // ボタンの状態をリセット
@@ -1353,7 +1344,7 @@ SOFTWARE.
                 if (!text.trim()) return 0;
                 
                 // 日本語の文字が含まれている場合は文字数（空白なし）を返す
-                if (/[\u3400-\u9FBF]/.test(text)) { // UnicodeのCJK統合漢字の範囲をチェック
+                if (/[\u3400-\u9FBF\u3040-\u309F\u30A0-\u30FF]/.test(text)) { // UnicodeのCJK統合漢字、ひらがな、カタカナの範囲をチェック
                     return text.replace(/\s+/g, '').length;
                 } else {
                     // 英語の場合はスペースで区切られた単語数を返す
@@ -1387,14 +1378,12 @@ SOFTWARE.
 
             // 統計データをローカルストレージに保存する
             saveStats() {
-                localStorage.setItem('voiceAssistantStats', JSON.stringify(this.stats));
-            }
-
-            // 統計表示を更新
-            updateStats() {
-                this.totalSessions.textContent = this.stats.totalSessions.toLocaleString();
-                this.totalWords.textContent = this.stats.totalWords.toLocaleString();
-                this.totalTime.textContent = this.stats.totalTime.toFixed(1); // 小数点以下1桁で表示
+                try {
+                    localStorage.setItem('voiceAssistantStats', JSON.stringify(this.stats));
+                } catch (e) {
+                    console.error("Failed to save stats:", e);
+                    this.updateStatus('統計データの保存に失敗しました。ブラウザのストレージがいっぱいかもしれません。', 'error');
+                }
             }
 
             // 履歴データをローカルストレージから読み込む
@@ -1410,7 +1399,12 @@ SOFTWARE.
 
             // 履歴データをローカルストレージに保存する
             saveHistory() {
-                localStorage.setItem('voiceAssistantHistory', JSON.stringify(this.history));
+                try {
+                    localStorage.setItem('voiceAssistantHistory', JSON.stringify(this.history));
+                } catch (e) {
+                    console.error("Failed to save history:", e);
+                    this.updateStatus('履歴の保存に失敗しました。ブラウザのストレージがいっぱいかもしれません。', 'error');
+                }
             }
 
             // 履歴リストを表示に反映
@@ -1423,15 +1417,18 @@ SOFTWARE.
                 this.history.forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'history-item';
+                    // XSS対策: textContentを使用
                     div.innerHTML = `
                         <div class="history-item-date">${item.date}</div>
-                        <div class="history-item-text">${item.text}</div>
+                        <div class="history-item-text"></div>
                     `;
+                    div.querySelector('.history-item-text').textContent = item.text;
+                    
                     // 履歴アイテムをクリックするとテキストエリアに内容をロード
                     div.addEventListener('click', () => {
                         this.textOutput.value = item.text;
                         this.updateCharCount();
-                        this.statusDisplay.textContent = '履歴をロードしました';
+                        this.updateStatus('履歴をロードしました');
                     });
                     this.historyList.appendChild(div);
                 });
@@ -1490,7 +1487,12 @@ SOFTWARE.
 
             // マイクガイド表示設定をローカルストレージに保存
             saveMicrophoneGuideSetting() {
-                localStorage.setItem('showMicrophoneGuide', JSON.stringify(this.showMicrophoneGuideOnStartup));
+                try {
+                    localStorage.setItem('showMicrophoneGuide', JSON.stringify(this.showMicrophoneGuideOnStartup));
+                } catch (e) {
+                    console.error("Failed to save microphone guide setting:", e);
+                    this.updateStatus('マイクガイド設定の保存に失敗しました。', 'error');
+                }
             }
 
             // マイクガイド表示設定をローカルストレージからロード
@@ -1526,7 +1528,12 @@ SOFTWARE.
                 this.downloadFormatCheckboxes.forEach(checkbox => {
                     settings[checkbox.value] = checkbox.checked;
                 });
-                localStorage.setItem('downloadFormatSettings', JSON.stringify(settings));
+                try {
+                    localStorage.setItem('downloadFormatSettings', JSON.stringify(settings));
+                } catch (e) {
+                    console.error("Failed to save download format settings:", e);
+                    this.updateStatus('ダウンロード形式設定の保存に失敗しました。', 'error');
+                }
             }
 
             // ダウンロード形式設定をUIに適用
@@ -1535,67 +1542,109 @@ SOFTWARE.
                     checkbox.checked = this.downloadFormats[checkbox.value] || false;
                 });
             }
+
+            // OpenAI APIキーをローカルストレージからロード
+            loadOpenAIApiKey() {
+                try {
+                    return localStorage.getItem('openaiApiKey') || '';
+                } catch (e) {
+                    console.error("Failed to load OpenAI API key:", e);
+                    return '';
+                }
+            }
+
+            // OpenAI APIキーをローカルストレージに保存
+            saveOpenAIApiKey(key) {
+                try {
+                    localStorage.setItem('openaiApiKey', key);
+                } catch (e) {
+                    console.error("Failed to save OpenAI API key:", e);
+                    this.updateStatus('APIキーの保存に失敗しました。ブラウザのストレージがいっぱいかもしれません。', 'error');
+                }
+            }
+
+            // ステータス表示を更新する汎用メソッド
+            updateStatus(message, type = 'info', duration = 3000) {
+                this.statusDisplay.textContent = message;
+                this.statusDisplay.className = `status-display ${type === 'error' ? 'error' : type === 'listening' ? 'listening' : ''}`;
+
+                // 一時的なメッセージの場合、一定時間後にリセット
+                if (duration > 0 && type !== 'listening') {
+                    clearTimeout(this.statusTimeout); // 既存のタイムアウトがあればクリア
+                    this.statusTimeout = setTimeout(() => {
+                        this.statusDisplay.textContent = '準備完了 - マイクボタンを押して開始';
+                        this.statusDisplay.className = 'status-display';
+                    }, duration);
+                }
+            }
+
+            // テキストを要約するメソッド
+            async summarizeText() {
+                const originalText = this.textOutput.value.trim();
+                if (!originalText) {
+                    this.updateStatus("要約するテキストがありません", "error");
+                    return;
+                }
+
+                if (!this.openaiApiKey) {
+                    this.updateStatus("OpenAI APIキーが設定されていません。設定パネルで入力してください。", "error");
+                    return;
+                }
+
+                this.updateStatus("要約中...", "listening");
+
+                try {
+                    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${this.openaiApiKey}`
+                        },
+                        body: JSON.stringify({
+                            model: "gpt-3.5-turbo",
+                            messages: [
+                                { role: "system", content: "以下のテキストを要点だけ5行以内でまとめてください。" },
+                                { role: "user", content: originalText }
+                            ],
+                            temperature: 0.5
+                        })
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error?.message || `APIエラー: ${response.status} ${response.statusText}`);
+                    }
+
+                    const data = await response.json();
+                    const summary = data.choices?.[0]?.message?.content?.trim();
+                    if (summary) {
+                        this.saveToUndoStack(); // 要約追加前にアンドゥスタックに保存
+                        this.textOutput.value += "\n\n---\n🧠 要約:\n" + summary;
+                        this.updateStatus("要約が完了しました");
+                        this.updateCharCount();
+                    } else {
+                        throw new Error("要約結果が取得できませんでした");
+                    }
+                } catch (err) {
+                    console.error("要約エラー:", err);
+                    this.updateStatus("要約に失敗しました: " + err.message, "error");
+                }
+            }
         }
 
         // DOMContentLoadedイベントでVoiceAssistantProクラスを初期化
         document.addEventListener('DOMContentLoaded', () => {
-    const OPENAI_API_KEY = "YOUR_API_KEY_HERE"; // ←ここにAPIキーを入力してください
-
-    const summarizeBtn = document.getElementById("summarizeBtn");
-    const textOutput = document.getElementById("textOutput"); 
-    const statusDisplay = document.getElementById("statusDisplay"); 
-
-    summarizeBtn.addEventListener("click", async () => {
-      const originalText = textOutput.value.trim();
-      if (!originalText) {
-        statusDisplay.textContent = "要約するテキストがありません";
-        statusDisplay.className = "status-display error";
-        return;
-      }
-
-      statusDisplay.textContent = "要約中...";
-      statusDisplay.className = "status-display listening";
-
-      try {
-        const response = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${OPENAI_API_KEY}`
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [
-              { role: "system", content: "以下のテキストを要点だけ5行以内でまとめてください。" },
-              { role: "user", content: originalText }
-            ],
-            temperature: 0.5
-          })
-        });
-
-        const data = await response.json();
-        const summary = data.choices?.[0]?.message?.content?.trim();
-        if (summary) {
-          textOutput.value += "\n\n---\n🧠 要約:\n" + summary;
-          statusDisplay.textContent = "要約が完了しました";
-          statusDisplay.className = "status-display";
-        } else {
-          throw new Error("要約結果が取得できませんでした");
-        }
-      } catch (err) {
-        console.error("要約エラー:", err);
-        statusDisplay.textContent = "要約に失敗しました: " + err.message;
-        statusDisplay.className = "status-display error";
-      }
-    });
-
             new VoiceAssistantPro();
         });
     </script>
 </body>
 </html>
-```ith_Summary.html…]()
+```
+0.1秒
+上矢印キーと下矢印キーを使用してターンを選択し、Enter キーでそのターンにジャンプし、Escape キーでチャットに戻ります。
+プロンプトを入力し始める式.html…]()
 
+---
 
 ---
 
@@ -1609,9 +1658,6 @@ SOFTWARE.
 ---
 
 # Claude Voice Assistant Pro 🎤
-
-![アプリケーションのスクリーンショット](path/to/your/screenshot.png)
-_ここにアプリケーションのスクリーンショットを挿入してください。_
 
 Claude Voice Assistant Pro は、あなたの声をテキストに変換し、AIアシスタント「Claude」との対話をよりスムーズにするための革新的なツールです。直感的なボタン操作で、話すだけでテキスト入力が可能になり、Claudeの活用を最大化できます。
 
@@ -1672,11 +1718,51 @@ Claude Voice Assistant Pro は、あなたの声をテキストに変換し、AI
 *   マイクデバイス
 *   OpenAI要約機能を利用する場合はインターネット接続とOpenAI APIキー
 
+---
+
 ## 📄 ライセンス
 
-[ここにライセンス情報 (例: MIT License) を記述してください。]
+---
+
+### MITライセンス
+
+著作権表示
+
+Copyright (c) 2025 Hanamaruki
+
+ここに、本ソフトウェアとそれに関連するドキュメントファイル（以下「本ソフトウェア」）の複製物を受け取るすべての人に対し、無料で利用を許可します。
+この許可には、本ソフトウェアを制限なく取り扱う権利が含まれます。
+具体的には、使用、複製、変更、結合、出版、配布、サブライセンスの付与、および販売を行う権利、また、本ソフトウェアが提供される相手に対して、これらの行為を許可する権利を意味します。
+ただし、以下の条件に従うものとします。
+
+上記に記載された著作権表示と、本許可表示は、本ソフトウェアのすべての複製物、または実質的な部分に含まれなければならないものとします。
+
+本ソフトウェアは「現状のまま」提供され、商品性、特定の目的への適合性、および非侵害性に対する保証を含む、明示的または黙示的ないかなる種類の保証もありません。
+いかなる場合も、著者または著作権者は、本ソフトウェアの使用またはその他の取り扱いから生じる、契約、不法行為、またはその他の行為にかかわらず、いかなる請求、損害、またはその他の責任に対しても責任を負わないものとします。
 
 ---
+
+### MIT License
+
+Copyright (c) 2025 Hanamaruki
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ---
 
